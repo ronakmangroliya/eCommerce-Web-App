@@ -5,6 +5,7 @@ The application is built using Next.js, React.js, Node.js, Express.js, MongoDB, 
 
 ## Technologies Used
 - **Next.js**: Next.js is used for server-side rendering and routing.
+- **TypeScript**: TypeScript is used for type-checking and improving code maintainability.
 - **React.js**: React.js is the JavaScript library used for building user interfaces.
 - **Node.js**: Node.js is the backend JavaScript runtime environment.
 - **Express.js**: Express.js is used as the backend web application framework for Node.js.
