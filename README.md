@@ -1,7 +1,7 @@
 # Ecommerce Web App
 
 ## Overview
-This document provides an overview of the E-commerce Web Application and its functionalities. The application is built using Next.js, React.js, Node.js, Express.js, MongoDB, Stripe, and integrates with various third-party APIs. The primary purpose of the application is to facilitate online shopping by providing features such as user authentication, product browsing, searching, filtering, adding to favourites, adding to cart, and seamless payment processing through Stripe.
+The application is built using Next.js, React.js, Node.js, Express.js, MongoDB, Stripe, and integrates with various third-party APIs. The primary purpose of the application is to facilitate online shopping by providing features such as user authentication, product browsing, searching, filtering, adding to favourites, adding to cart, and seamless payment processing through Stripe.
 
 ## Technologies Used
 - **Next.js**: Next.js is used for server-side rendering and routing.
