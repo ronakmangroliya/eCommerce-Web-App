@@ -255,7 +255,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Product details modal */}
+      
       {selectedProduct && (
         <ProductDetail
           product={selectedProduct}
