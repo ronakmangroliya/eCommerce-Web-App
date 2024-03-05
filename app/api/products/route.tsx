@@ -2,11 +2,11 @@ import Product from "@/app/models/productModel";
 import connection from "@/db/config";
 import { NextResponse } from "next/server";
 
-export async function GET(res: Response) {
+export async function GET(req: Request, res: Response) {
   try {
     await connection();
     const products = await Product.find();
-    console.log(products);
+    // console.log(products);
 
     return NextResponse.json(products);
   } catch (error) {
