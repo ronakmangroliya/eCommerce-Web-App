@@ -31,7 +31,7 @@ const ProductDetail: React.FC<Props> = ({ product, onClose, onAddToCart }) => {
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
       ) {
-        onClose(); // Close if clicked outside
+        onClose();
       }
     };
 

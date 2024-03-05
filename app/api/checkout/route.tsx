@@ -1,10 +1,11 @@
 // Import necessary modules
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
+import dotenv from "dotenv";
 
-const stripe = require("stripe")(
-  "sk_test_51OosokKXuM68yiSEwlbKXVmsBlPNYqI5ltpnlQhQTMR0jZpVUAvqasHTXCWsrM2BSbyh5GrBhmYvpzff93UsQu0600Rr8CciUS"
-);
+dotenv.config();
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 //Export the POST function to handle POST requests
 export async function POST(req: NextRequest) {

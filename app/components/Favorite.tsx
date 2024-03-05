@@ -22,13 +22,10 @@ const Favorite = () => {
   const { favoriteProducts } = useFavorite();
   const [userEmail, setUserEmail] = useState<string | null>(null);
 
-  // console.log(favoriteProducts);
-
   useEffect(() => {
-    // Update userEmail when it changes
     if (typeof window !== "undefined") {
       const storedUserEmail = localStorage.getItem("userEmail");
-      setUserEmail(storedUserEmail); // Update userEmail state directly
+      setUserEmail(storedUserEmail);
     }
   }, []);
 

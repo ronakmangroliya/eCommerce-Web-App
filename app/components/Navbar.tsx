@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { useCart } from "../context/cartContext";
 import { useRouter } from "next/navigation";
-// import ShoppingCart from "./ShoppingCart";
 
 const Navbar = () => {
   const { cartItemsCount } = useCart();
@@ -54,7 +53,6 @@ const Navbar = () => {
             {/* <Link href="/favorite"> */}
             <Link
               href={"/User/Favorite"}
-              // onClick={handleFavoriteClick}
               className="hover:text-gray-300 text-lg"
             >
               <svg

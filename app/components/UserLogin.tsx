@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Link from "next/link";
@@ -13,9 +12,10 @@ const UserLogin = () => {
   const [password, setPassword] = useState<string>("");
   const [showToast, setShowToast] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string>("");
 
   const router = useRouter();
-  
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -27,23 +27,32 @@ const UserLogin = () => {
 
       if (response.status === 200) {
         setShowToast(true);
+        setToastMessage(response.data.msg);
         setTimeout(() => setShowToast(false), 4000);
         setEmail("");
         setPassword("");
         localStorage.setItem("userEmail", email);
         router.push("/User/Home");
       }
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      const response = error.response;
+      if (response && response.status === 409) {
+        setShowToast(true);
+        setToastMessage(response.data.msg);
+        setTimeout(() => setShowToast(false), 4000);
+      } else {
+        console.log(error);
+      }
     } finally {
       setIsLoading(false);
     }
   };
+
   return (
     <section className="text-gray-600 body-font relative bg-[#edf5ff] h-[100vh] bg-gray-200 ">
       {showToast && (
         <CustomToast
-          message="Login successful"
+          message={toastMessage}
           onClose={() => setShowToast(false)}
         />
       )}
@@ -99,7 +108,7 @@ const UserLogin = () => {
             <button
               type="submit"
               className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg w-full sm:w-auto px-8 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              disabled={isLoading} // Disable button when loading
+              disabled={isLoading}
             >
               {isLoading ? "Loading..." : "Login"}{" "}
             </button>

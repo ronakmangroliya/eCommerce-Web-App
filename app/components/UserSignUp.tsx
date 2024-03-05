@@ -20,11 +20,11 @@ const UserSignUp = () => {
     setIsLoading(true);
     axios
       .post("/api/signup", { email, password, name })
-      .then((res) => {
-        console.log(res);
+      .then((response) => {
+        // console.log(res);
         setShowToast(true);
-        setToastMessage("Registration successful!");
-        // Reset form fields
+        setToastMessage(response.data.msg);
+        setTimeout(() => setShowToast(false), 4000);
         setName("");
         setEmail("");
         setPassword("");
@@ -36,6 +36,7 @@ const UserSignUp = () => {
           setToastMessage(
             "This email is already in use. Please use a different email."
           );
+          setTimeout(() => setShowToast(false), 4000);
         } else {
           console.error("Error:", err);
         }

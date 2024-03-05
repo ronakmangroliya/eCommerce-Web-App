@@ -57,13 +57,11 @@ const ShoppingCart = () => {
     localStorage.setItem(`cart_${userEmail}`, JSON.stringify(updatedCartItems));
   };
 
-  // Calculate subtotal
   const subtotal = cartItems.reduce(
     (acc, curr) => acc + curr.price * curr.quantity,
     0
   );
 
-  // Calculate total
   const SHIPPING_COST = cartItems.length > 0 ? 4.99 : 0;
   const tax = subtotal * TAX_RATE;
   const total = subtotal + tax + SHIPPING_COST + HANDLING_FEE;

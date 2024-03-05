@@ -6,7 +6,6 @@ interface SearchFieldProps {
 const SearchField: React.FC<SearchFieldProps> = ({ setSearchQuery }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    console.log("Search query:", value); // Log the search query
     setSearchQuery(value);
   };
 

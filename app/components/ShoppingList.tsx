@@ -48,8 +48,8 @@ const Home = () => {
           setProducts(JSON.parse(cachedData));
           setLoading(false);
         } else {
-          const response = await axios.get("https://fakestoreapi.com/products");
-          console.log(response.data);
+          const response = await axios.get("/api/products");
+          // console.log(response.data);
           const fetchedProducts: Product[] = response.data;
           setProducts(fetchedProducts);
           localStorage.setItem("products", JSON.stringify(fetchedProducts));
@@ -64,11 +64,9 @@ const Home = () => {
     fetchData();
   }, []);
 
-  // Sync favorite products with local storage when favoriteProducts change
   useEffect(() => {
     localStorage.setItem("favoriteProducts", JSON.stringify(favoriteProducts));
 
-    // Update the products state to reflect the correct favorite status
     setProducts((prevProducts) =>
       prevProducts.map((product) => ({
         ...product,
@@ -91,7 +89,6 @@ const Home = () => {
     setFilteredProducts(filtered);
   }, [searchQuery, products, categoryFilter]);
 
-  // console.log("Filtered products:", filteredProducts);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -255,7 +252,6 @@ const Home = () => {
         </div>
       </div>
 
-      
       {selectedProduct && (
         <ProductDetail
           product={selectedProduct}

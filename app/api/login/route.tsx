@@ -1,4 +1,3 @@
-
 import User from "../../models/userModels";
 import connection from "@/db/config";
 import { NextResponse } from "next/server";
@@ -17,7 +16,7 @@ export async function POST(req: Request) {
     const isUserPresent = await User.findOne({ email });
     if (!isUserPresent) {
       return NextResponse.json(
-        { msg: "User is not available" },
+        { msg: "You don't have an account! Please signup" },
         { status: 409 }
       );
     }
